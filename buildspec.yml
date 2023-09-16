@@ -17,11 +17,16 @@ phases:
       - echo Compiling the Node.js code
       - npm run build
 artifacts:
+  # include all files required to run application
+  # notably excluded is node_modules, as this will cause overwrite error on deploy
   files:
-    - .next/**/*
-    - locales/**/*
-    - static/**/*
-    - package.json
+    - src/**/*
+    - public/**/*
     - next.config.js
+    - package.json
+    - appspec.yml
+    - buildspec.yml
+    - deploy.sh
     - tsconfig.json
-    - tsconfig.server.json
+    
+
